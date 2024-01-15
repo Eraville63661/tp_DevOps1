@@ -15,7 +15,7 @@ jobs:
         python-version: '3.8'
     
     - name: Installe Dépendance
-      run: pip install -r requirement.txt
+      run: pip install -r Flask
 
     - name : Execution de mon script python
       run: python script.py
