@@ -1,0 +1,28 @@
+name: Mon 2eme Workflow
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Installe Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+    
+    - name: Installe Dépendance
+      run: 
+        python -m pip install --upgrade pip
+        pip install -r requirement.txt
+
+    - name: Execution de mon script python
+      run: python script.py
+
+    - name: Construction de l'image
+      run: 
+        docker build -t rerav/script:v1
+    
